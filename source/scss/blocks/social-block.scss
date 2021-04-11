@@ -17,6 +17,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: color 0.3s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +36,8 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition-property: width, height, background-color, border-color;
+    transition-duration: 0.3s;
   }
 
   svg {
@@ -87,7 +90,6 @@
   top: 100%;
   right: 0;
   margin-top: 1.5rem;
-  opacity: 0;
   pointer-events: none;
 
   @media (min-width: $stop-scaling) {
@@ -100,7 +102,6 @@
     justify-content: center;
     align-items: center;
     margin-top: 0;
-    opacity: 1;
     pointer-events: auto;
   }
 
@@ -110,7 +111,6 @@
     justify-content: center;
     align-items: center;
     margin-top: 0;
-    opacity: 1;
     pointer-events: auto;
   }
 
@@ -128,23 +128,26 @@
   }
 
   &:hover {
-    opacity: 1;
     pointer-events: auto;
   }
 
   &:focus-within {
-    opacity: 1;
     pointer-events: auto;
   }
 
   .social-block--active & {
-    opacity: 1;
     pointer-events: auto;
   }
 
   li {
     flex: none;
     margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(8px);
+    transition-property: opacity, transform;
+    transition-duration: 0.3s;
+    transition-delay: 0.3s, 0.6s;
+    transition-timing-function: ease-out;
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
@@ -156,6 +159,20 @@
 
     @media (max-width: $mobile) and (orientation: landscape) {
       margin: 0 1.25rem;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.social-block--active li {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0s;
+
+  @for $i from 1 to 5 {
+    &:nth-child(#{$i + 1}) {
+      transition-delay: #{100 * $i}ms;
     }
   }
 }
@@ -168,6 +185,8 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
