@@ -1,15 +1,3 @@
-@keyframes introMessage {
-  from {
-    transform: translateY(24px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 @keyframes sliderText {
   0% {
     transform: translateX(24px);
