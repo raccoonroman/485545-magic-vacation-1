@@ -1,0 +1,33 @@
+@keyframes sliderText {
+  0% {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes formField {
+  from {
+    width: 0;
+    color: transparent;
+  }
+
+  80% {
+    width: 100%;
+    color: transparent;
+  }
+
+  to {
+    width: 100%;
+    color: $c-dark;
+  }
+}

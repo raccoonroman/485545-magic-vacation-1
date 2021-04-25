@@ -45,7 +45,12 @@
   outline: none;
 
   &:focus {
-    border: 1px solid $c-purple;
+    box-shadow: inset 0 0 0 1px $c-purple;
+  }
+
+  &::placeholder {
+    color: inherit;
+    opacity: 0.5;
   }
 
   @media (min-width: $stop-scaling) {
@@ -75,6 +80,40 @@
     width: calc(100% - 5rem);
     height: 4rem;
     font-size: 1.6rem;
+  }
+}
+
+.form__field-wrapper {
+  &--message {
+    flex: none;
+    margin-right: 3rem;
+    width: calc(100% - 21rem);
+    text-align: right;
+
+    @media (min-width: $stop-scaling) {
+      margin-right: 30px;
+      width: calc(100% - 210px);
+    }
+
+    @media (orientation: portrait) {
+      margin-right: 1rem;
+      width: calc(100% - 5rem);
+    }
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: calc(100% - 9rem);
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
+      margin-right: 1rem;
+      width: calc(100% - 5rem);
+    }
+  }
+
+  .form__field {
+    width: 100%;
+    margin-right: 0;
+    animation: formField 0.5s;
   }
 }
 
