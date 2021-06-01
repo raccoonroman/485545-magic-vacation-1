@@ -26,6 +26,11 @@
   justify-content: space-between;
 }
 
+.body-loaded .page-header__logo {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 .page-header__logo {
   @include hover;
   position: relative;
@@ -35,6 +40,12 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition-property: transform, opacity;
+  transition-duration: 0.4s;
+  transition-delay: 0.15s;
+  transition-timing-function: cubic-bezier(0.4, 0.92, 0.64, 1);
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -170,6 +181,10 @@
   }
 }
 
+.body-loaded .page-header__menu {
+  opacity: 1;
+}
+
 .page-header__menu {
   font-family: $font-alt;
   text-transform: uppercase;
@@ -177,6 +192,11 @@
   font-size: 1.2rem;
   line-height: 1.0418;
   color: $c-light;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.4s;
+  transition-delay: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0.92, 0.64, 1);
 
   @media (min-width: $stop-scaling) {
     font-size: 12px;
@@ -262,14 +282,6 @@
       }
     }
 
-    &.active {
-      &::after {
-        width: 100%;
-        right: auto;
-        left: 0;
-      }
-    }
-
     &:hover,
     &:focus {
       color: $c-purple;
@@ -283,6 +295,13 @@
       }
     }
   }
+}
+
+.body-loaded .page-header__menu a.active::after {
+  transition-delay: 0.3s;
+  width: 100%;
+  right: auto;
+  left: 0;
 }
 
 .page-header__social {

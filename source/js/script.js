@@ -9,6 +9,8 @@ import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 
+import './modules/page-load';
+
 // init modules
 mobileHeight();
 slider();
