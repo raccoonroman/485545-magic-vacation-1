@@ -298,7 +298,7 @@
 }
 
 .body-loaded .page-header__menu a.active::after {
-  transition-delay: 0.3s;
+  transition-delay: 0.3s, 0s;
   width: 100%;
   right: auto;
   left: 0;
