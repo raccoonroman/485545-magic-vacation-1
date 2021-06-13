@@ -40,14 +40,28 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
-    this.screenElements.forEach((screen) => {
-      screen.classList.add(`screen--hidden`);
-      screen.classList.remove(`active`);
-    });
-    this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-    setTimeout(() => {
-      this.screenElements[this.activeScreen].classList.add(`active`);
-    }, 100);
+    const previousScreen = [...this.screenElements].find((el) => !el.classList.contains(`screen--hidden`));
+    const currentScreen = this.screenElements[this.activeScreen];
+    const screenBg = document.querySelector(`.screen-bg`);
+
+    if (previousScreen && currentScreen.classList.contains(`screen--prizes`)) {
+      // когда происходит переход на экран 'Призы' с любого другого
+      screenBg.classList.add(`active`);
+      setTimeout(() => {
+        previousScreen.classList.add(`screen--hidden`);
+        previousScreen.classList.remove(`active`);
+        currentScreen.classList.remove(`screen--hidden`);
+        currentScreen.classList.add(`active`);
+        screenBg.classList.remove(`active`);
+      }, 500);
+    } else {
+      this.screenElements.forEach((screen) => {
+        screen.classList.add(`screen--hidden`);
+        screen.classList.remove(`active`);
+      });
+      currentScreen.classList.remove(`screen--hidden`);
+      setTimeout(() => currentScreen.classList.add(`active`), 100);
+    }
   }
 
   changeActiveMenuItem() {
