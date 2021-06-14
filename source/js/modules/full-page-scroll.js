@@ -44,6 +44,10 @@ export default class FullPageScroll {
     const currentScreen = this.screenElements[this.activeScreen];
     const screenBg = document.querySelector(`.screen-bg`);
 
+    if (previousScreen === currentScreen) {
+      return; // ничего не делать, если кликаем по текущему пункту меню
+    }
+
     if (previousScreen && currentScreen.classList.contains(`screen--prizes`)) {
       // когда происходит переход на экран 'Призы' с любого другого
       screenBg.classList.add(`active`);
@@ -53,7 +57,7 @@ export default class FullPageScroll {
         currentScreen.classList.remove(`screen--hidden`);
         currentScreen.classList.add(`active`);
         screenBg.classList.remove(`active`);
-      }, 500);
+      }, 650);
     } else {
       this.screenElements.forEach((screen) => {
         screen.classList.add(`screen--hidden`);
