@@ -62,10 +62,8 @@
       transform: translate(-50%, -50%);
     }
 
-    &:first-child {
-      &::before {
-        display: none;
-      }
+    &:first-child::before {
+      display: none;
     }
   }
 
