@@ -10,6 +10,7 @@ import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 
 import './modules/page-load';
+import './modules/screen-main';
 
 // init modules
 mobileHeight();
