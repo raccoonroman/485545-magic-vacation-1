@@ -190,7 +190,7 @@
   text-transform: uppercase;
   font-weight: 400;
   font-size: 1.2rem;
-  line-height: 1.0418;
+  line-height: 1.042;
   color: $c-light;
   opacity: 0;
   transition-property: opacity;
@@ -286,13 +286,14 @@
     &:focus {
       color: $c-purple;
       outline: none;
+    }
 
-      &::after {
-        width: 100%;
-        right: auto;
-        left: 0;
-        background-color: $c-purple;
-      }
+    &:hover::after,
+    &:focus::after {
+      width: 100%;
+      right: auto;
+      left: 0;
+      background-color: $c-purple;
     }
   }
 }

@@ -262,36 +262,36 @@
       display: none;
     }
   }
+}
 
-  span {
-    margin-right: 2rem;
+.screen__footer-note span {
+  margin-right: 2rem;
 
-    @media (min-width: $stop-scaling) {
-      margin-right: 20px;
+  @media (min-width: $stop-scaling) {
+    margin-right: 20px;
+  }
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    margin-right: 0;
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    margin-right: 0;
+  }
+
+  &.on-top {
+    display: none;
+
+    .section-top & {
+      display: inline;
     }
+  }
 
-    @media (max-width: $tablet) and (orientation: portrait) {
-      margin-right: 0;
-    }
+  &.on-prizes {
+    display: none;
 
-    @media (max-width: $mobile) and (orientation: landscape) {
-      margin-right: 0;
-    }
-
-    &.on-top {
-      display: none;
-
-      .section-top & {
-        display: inline;
-      }
-    }
-
-    &.on-prizes {
-      display: none;
-
-      .section-prizes & {
-        display: inline;
-      }
+    .section-prizes & {
+      display: inline;
     }
   }
 }
